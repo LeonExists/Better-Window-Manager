@@ -3,6 +3,7 @@ const path = require('path');
 
 let mainWindow;
 
+// --- SHORTCUT ---
 const shortcut = 'CommandOrControl+Shift+Space'
 
 // --- WINDOW ---
@@ -59,13 +60,14 @@ function toggleWindow() {
   }
 }
 
-// Shortcut
 app.whenReady().then(() => {
   createWindow();
 
-  // Register global shortcut: Ctrl+Space (you can change this)
+  // Register global shortcut
   const ret = globalShortcut.register(shortcut, () => {
     toggleWindow();
+
+    opeenDevTools();
   });
 
   if (!ret) {
